@@ -30,3 +30,18 @@ public func XCTExpectError(_ file: StaticString = #file,
 			file: file,
 			line: line)
 }
+
+public func XCTExpectNoError(_ file: StaticString = #file,
+							 _ line: UInt = #line,
+							 _ block: () throws -> Void) {
+	var errorThrown: Bool = false
+	do {
+		try block()
+	} catch {
+		errorThrown = true
+	}
+	guard errorThrown == true else { return }
+	XCTFail("Expected Error to be thrown in block but no error was thrown.\(file):\(line)",
+			file: file,
+			line: line)
+}
