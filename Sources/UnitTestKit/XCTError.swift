@@ -26,7 +26,7 @@ public func XCTExpectError(_ file: StaticString = #file,
 		errorThrown = true
 	}
 	guard errorThrown == false else { return }
-	XCTFail("Expected Error to be thrown in block but no error was thrown.\(file):\(line)",
+	XCTFail("Expected error to be thrown in block, but no error was thrown.\(file):\(line)",
 			file: file,
 			line: line)
 }
@@ -41,7 +41,7 @@ public func XCTExpectNoError(_ file: StaticString = #file,
 		errorThrown = true
 	}
 	guard errorThrown == true else { return }
-	XCTFail("Expected Error to be thrown in block but no error was thrown.\(file):\(line)",
+	XCTFail("Unexpected error was thrown in block, but no error was expected.\(file):\(line)",
 			file: file,
 			line: line)
 }
