@@ -31,7 +31,7 @@ public func UTKExpectError(_ file: StaticString = #file,
 			line: line)
 }
 
-public func XCTExpectNoError(_ file: StaticString = #file,
+public func UTKExpectNoError(_ file: StaticString = #file,
 							 _ line: UInt = #line,
 							 _ block: () throws -> Void) {
 	var errorThrown: Bool = false
