@@ -16,7 +16,7 @@
 import Foundation
 import XCTest
 
-public func XCTExpectError(_ file: StaticString = #file,
+public func UTKExpectError(_ file: StaticString = #file,
 						   _ line: UInt = #line,
 						   _ block: () throws -> Void) {
 	var errorThrown: Bool = false
