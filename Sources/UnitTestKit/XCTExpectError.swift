@@ -34,6 +34,9 @@ public func UTKExpectError(_ file: StaticString = #file,
 			line: line)
 }
 
+/// Takes a closure that is expected to not throw an error, otherwise fails the unit test if an error is thrown.
+/// - Parameters:
+///   - block: The closure that must not throw an error before completion or fails the unit test.
 public func UTKExpectNoError(_ file: StaticString = #file,
 							 _ line: UInt = #line,
 							 _ block: () throws -> Void) {
