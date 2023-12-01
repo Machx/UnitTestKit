@@ -41,7 +41,7 @@ public func UTKExpectNoError(_ file: StaticString = #file,
 		errorThrown = true
 	}
 	guard errorThrown == true else { return }
-	XCTFail("Unexpected error was thrown in block, but no error was expected.\(file):\(line)",
+	XCTFail("Unexpected error was thrown in block, but no error was expected.",
 			file: file,
 			line: line)
 }
