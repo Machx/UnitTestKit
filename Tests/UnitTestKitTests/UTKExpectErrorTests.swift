@@ -8,7 +8,7 @@
 import XCTest
 import UnitTestKit
 
-final class XCTExpectErrorTests: XCTestCase {
+final class UTKExpectErrorTests: XCTestCase {
 
 	enum ExpectError: Error {
 		case exampleError
