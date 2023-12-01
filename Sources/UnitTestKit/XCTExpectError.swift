@@ -26,7 +26,7 @@ public func UTKExpectError(_ file: StaticString = #file,
 		errorThrown = true
 	}
 	guard errorThrown == false else { return }
-	XCTFail("Expected error to be thrown in block, but no error was thrown.\(file):\(line)",
+	XCTFail("Expected error to be thrown in block, but no error was thrown.",
 			file: file,
 			line: line)
 }
