@@ -16,6 +16,9 @@
 import Foundation
 import XCTest
 
+/// Takes a closure that is expected to throw an error, otherwise fails the unit test if no error is thrown.
+/// - Parameters:
+///   - block: The closure that must throw an error before completion or fails the unit test.
 public func UTKExpectError(_ file: StaticString = #file,
 						   _ line: UInt = #line,
 						   _ block: () throws -> Void) {
