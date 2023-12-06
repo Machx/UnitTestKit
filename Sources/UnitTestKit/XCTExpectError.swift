@@ -17,6 +17,13 @@ import Foundation
 import XCTest
 
 /// Takes a closure that is expected to throw an error, otherwise fails the unit test if no error is thrown.
+///
+/// ```swift
+/// UTKExpectError {
+///     try funcThatShouldThrowError()
+/// }
+/// ```
+///
 /// - Parameters:
 ///   - file: The file where the the failure occurs, the default is the name of the file where this is being invoked from.
 ///   - line: The line of the file where the failure occurs, the default is the line of the file where this is being invoked from.
