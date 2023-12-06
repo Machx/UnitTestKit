@@ -18,6 +18,8 @@ import XCTest
 
 /// Takes a closure that is expected to throw an error, otherwise fails the unit test if no error is thrown.
 /// - Parameters:
+///   - file: The file where the the failure occurs, the default is the name of the file where this is being invoked from.
+///   - line: The line of the file where the failure occurs, the default is the line of the file where this is being invoked from.
 ///   - block: The closure that must throw an error before completion or fails the unit test.
 public func UTKExpectError(_ file: StaticString = #file,
 						   _ line: UInt = #line,
