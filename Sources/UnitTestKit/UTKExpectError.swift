@@ -61,13 +61,16 @@ public func UTKExpectNoError(_ file: StaticString = #file,
 							 _ line: UInt = #line,
 							 _ block: () throws -> Void) {
 	var errorThrown: Bool = false
+	var errorDescription: String?
 	do {
 		try block()
 	} catch {
+		errorDescription = error.localizedDescription
 		errorThrown = true
 	}
 	guard errorThrown == true else { return }
-	XCTFail("Unexpected error was thrown in block, but no error was expected.",
+	let errorMessageDescription = errorDescription ?? "unknown-error"
+	XCTFail("Unexpected error \(errorMessageDescription) was thrown in block, but no error was expected.",
 			file: file,
 			line: line)
 }
