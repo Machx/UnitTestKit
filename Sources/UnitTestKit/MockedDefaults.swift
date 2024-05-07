@@ -119,12 +119,12 @@ final class MockedDefaults: UserDefaults, DefaultsProtocol {
 
 	// so that nothing actually gets written to the Defaults
 	override func synchronize() -> Bool {
-		Log.unitTests.debug("Calling this function does nothing. \(#function)")
+		Log.unitTestKit.debug("Calling this function does nothing. \(#function)")
 		return true
 	}
 
 	override class func resetStandardUserDefaults() {
-		Log.unitTests.debug("Calling this function does nothing. \(#function)")
+		Log.unitTestKit.debug("Calling this function does nothing. \(#function)")
 	}
 
 	// MARK: - Custom Debugging
