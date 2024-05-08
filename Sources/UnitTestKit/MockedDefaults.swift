@@ -18,7 +18,8 @@ public protocol DefaultsProtocol: AnyObject {
 
 /// Class that is meant to mimic UserDefaults, but not actually
 /// write out its contents to the user defaults, instead just
-/// keeping everything in memory
+/// keeping everything in memory for better working with unit
+/// testing.
 final class MockedDefaults: UserDefaults, DefaultsProtocol {
 
 	// MARK: - Setup
