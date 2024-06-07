@@ -26,7 +26,7 @@ public protocol DefaultsProtocol: AnyObject {
 /// write out its contents to the user defaults, instead just
 /// keeping everything in memory for better working with unit
 /// testing.
-final class MockedDefaults: UserDefaults, DefaultsProtocol {
+public final class MockedDefaults: UserDefaults, DefaultsProtocol {
 
 	// MARK: - Setup
 
