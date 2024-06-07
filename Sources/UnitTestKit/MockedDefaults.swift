@@ -40,97 +40,97 @@ public final class MockedDefaults: UserDefaults, DefaultsProtocol {
 
 	// Default getter.
 
-	override func object(forKey defaultName: String) -> Any? {
+	public override func object(forKey defaultName: String) -> Any? {
 		_storage[defaultName]
 	}
 
 	// Specialized getters.
 
-	override func url(forKey defaultName: String) -> URL? {
+	public override func url(forKey defaultName: String) -> URL? {
 		return _storage[defaultName] as? URL
 	}
 
-	override func array(forKey defaultName: String) -> [Any]? {
+	public override func array(forKey defaultName: String) -> [Any]? {
 		return _storage[defaultName] as? [Any]
 	}
 
-	override func dictionary(forKey defaultName: String) -> [String : Any]? {
+	public override func dictionary(forKey defaultName: String) -> [String : Any]? {
 		return _storage[defaultName] as? [String:Any]
 	}
 
-	override func string(forKey defaultName: String) -> String? {
+	public override func string(forKey defaultName: String) -> String? {
 		return _storage[defaultName] as? String
 	}
 
-	override func stringArray(forKey defaultName: String) -> [String]? {
+	public override func stringArray(forKey defaultName: String) -> [String]? {
 		return _storage[defaultName] as? [String]
 	}
 
-	override func data(forKey defaultName: String) -> Data? {
+	public override func data(forKey defaultName: String) -> Data? {
 		return _storage[defaultName] as? Data
 	}
 
-	override func bool(forKey defaultName: String) -> Bool {
+	public override func bool(forKey defaultName: String) -> Bool {
 		return _storage[defaultName] as? Bool ?? false
 	}
 
-	override func integer(forKey defaultName: String) -> Int {
+	public override func integer(forKey defaultName: String) -> Int {
 		return _storage[defaultName] as? Int ?? 0
 	}
 
-	override func float(forKey defaultName: String) -> Float {
+	public override func float(forKey defaultName: String) -> Float {
 		return _storage[defaultName] as? Float ?? 0.0
 	}
 
-	override func double(forKey defaultName: String) -> Double {
+	public override func double(forKey defaultName: String) -> Double {
 		return _storage[defaultName] as? Double ?? 0.0
 	}
 
-	override func dictionaryRepresentation() -> [String : Any] {
+	public override func dictionaryRepresentation() -> [String : Any] {
 		return _storage
 	}
 
 	// MARK: - Setters
 
-	override func set(_ value: Any?, forKey defaultName: String) {
+	public override func set(_ value: Any?, forKey defaultName: String) {
 		_storage[defaultName] = value
 	}
 
-	override func set(_ value: Float, forKey defaultName: String) {
+	public override func set(_ value: Float, forKey defaultName: String) {
 		_storage[defaultName] = value
 	}
 
-	override func set(_ value: Double, forKey defaultName: String) {
+	public override func set(_ value: Double, forKey defaultName: String) {
 		_storage[defaultName] = value
 	}
 
-	override func set(_ value: Int, forKey defaultName: String) {
+	public override func set(_ value: Int, forKey defaultName: String) {
 		_storage[defaultName] = value
 	}
 
-	override func set(_ value: Bool, forKey defaultName: String) {
+	public override func set(_ value: Bool, forKey defaultName: String) {
 		_storage[defaultName] = value
 	}
 
-	override func set(_ url: URL?, forKey defaultName: String) {
+	public override func set(_ url: URL?, forKey defaultName: String) {
 		_storage[defaultName] = url
 	}
 
 	// MARK: - Remove
 
-	override func removeObject(forKey defaultName: String) {
+	public override func removeObject(forKey defaultName: String) {
 		_storage.removeValue(forKey: defaultName)
 	}
 
 	// MARK: - Other
 
 	// so that nothing actually gets written to the Defaults
-	override func synchronize() -> Bool {
+	public override func synchronize() -> Bool {
 		Log.unitTestKit.debug("Calling this function does nothing. \(#function)")
 		return true
 	}
 
-	override class func resetStandardUserDefaults() {
+	public override class func resetStandardUserDefaults() {
 		Log.unitTestKit.debug("Calling this function does nothing. \(#function)")
 	}
 
