@@ -92,7 +92,7 @@ final class MockUserDefaultsTests: XCTestCase {
 	func testURLNil() {
 		let url2Key = UUID().uuidString
 		XCTAssertNil(defaults.url(forKey: url2Key))
-		var url: URL? = nil
+		let url: URL? = nil
 		defaults.set(url, forKey: url2Key)
 	}
 
