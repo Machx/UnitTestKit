@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "konkyo",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Machx/Konkyo.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d2e58385a1bc0e834da2c5e50a7e35f3f5f534c5"
+      }
+    }
+  ],
+  "version" : 2
+}
