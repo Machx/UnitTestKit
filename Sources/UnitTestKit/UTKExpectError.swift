@@ -42,6 +42,7 @@ public func UTKExpectError(_ file: StaticString = #file,
 	XCTFail("Expected error to be thrown in block, but no error was thrown.",
 			file: file,
 			line: line)
+	// TODO: Convert this for Swift Testing
 }
 
 /// Takes a closure that is expected to not throw an error, fails the unit test if an error is thrown.
