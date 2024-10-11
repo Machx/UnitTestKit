@@ -15,6 +15,13 @@
 
 import XCTest
 import UnitTestKit
+import Testing
+
+@Test func expectThrowError() async throws {
+	UTKExpectError {
+		print("Hello World!")
+	}
+}
 
 final class UTKExpectErrorTests: XCTestCase {
 
