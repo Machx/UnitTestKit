@@ -40,7 +40,7 @@ public func UTKExpectError(_ file: StaticString = #file,
 	}
 	guard errorThrown == false else { return }
 	XCTFail("Expected error to be thrown in block, but no error was thrown.",
-			file: file,
+			file: (file),
 			line: line)
 	// TODO: Convert this for Swift Testing
 }
@@ -72,6 +72,6 @@ public func UTKExpectNoError(_ file: StaticString = #file,
 	guard errorThrown == true else { return }
 	let errorMessageDescription = errorDescription ?? "unknown-error"
 	XCTFail("Unexpected error \(errorMessageDescription) was thrown in block, but no error was expected.",
-			file: file,
+			file: (file),
 			line: line)
 }
