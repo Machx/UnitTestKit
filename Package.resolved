@@ -1,4 +1,5 @@
 {
+  "originHash" : "4cf627c1624746c394e31daa926b894f9dc024a53d8f27e34cb9b6971320f5b5",
   "pins" : [
     {
       "identity" : "konkyo",
@@ -6,9 +7,9 @@
       "location" : "https://github.com/Machx/Konkyo.git",
       "state" : {
         "branch" : "main",
-        "revision" : "d2e58385a1bc0e834da2c5e50a7e35f3f5f534c5"
+        "revision" : "607e4b718e9decf062f675386af579e06677ece9"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
