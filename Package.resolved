@@ -1,13 +1,13 @@
 {
-  "originHash" : "4cf627c1624746c394e31daa926b894f9dc024a53d8f27e34cb9b6971320f5b5",
+  "originHash" : "c589e92bbbc43e130297015afee453229f1d486253008b4fe1b2991d30d58774",
   "pins" : [
     {
       "identity" : "konkyo",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Machx/Konkyo.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "17c5ae4bb16aafc851bab260e2e7e4b3aa371e43"
+        "revision" : "ff164f0b2cc26c04b5de34473799b7523ab0b8f7",
+        "version" : "0.5.2"
       }
     }
   ],
