@@ -16,8 +16,8 @@ let package = Package(
             targets: ["UnitTestKit"]),
     ],
 	dependencies: [
-		//.package(url: "https://github.com/Machx/Konkyo.git", branch: "main"),
-		.package(url: "https://github.com/Machx/Konkyo.git", exact: "0.5.2")
+		.package(url: "https://github.com/Machx/Konkyo.git", branch: "main"),
+		//.package(url: "https://github.com/Machx/Konkyo.git", exact: "0.5.2")
 	],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
