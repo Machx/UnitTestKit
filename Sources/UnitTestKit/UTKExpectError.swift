@@ -95,15 +95,20 @@ public func UTKExpectNoError(_ file: StaticString = #file,
 												column: 0))
 }
 
-	if let _ = NSClassFromString("XCTestCase") {
-		XCTFail("Unexpected error \(errorMessageDescription) was thrown in block, but no error was expected.",
-				file: (file),
-				line: line)
-	} else {
-		Issue.record("Unexpected error \(errorMessageDescription) was thrown in block, but no error was expected.",
-					 sourceLocation: SourceLocation(fileID: String(describing: file),
-													filePath: String(describing: file),
-													line: Int(line),
-													column: 0))
+public func UTKExpectNoErrorXCT(_ file: StaticString = #file,
+							 _ line: UInt = #line,
+							 _ block: () throws -> Void) {
+	var errorThrown: Bool = false
+	var errorDescription: String?
+	do {
+		try block()
+	} catch {
+		errorDescription = error.localizedDescription
+		errorThrown = true
 	}
+	guard errorThrown == true else { return }
+	let errorMessageDescription = errorDescription ?? "unknown-error"
+	XCTFail("Unexpected error \(errorMessageDescription) was thrown in block, but no error was expected.",
+			file: (file),
+			line: line)
 }
