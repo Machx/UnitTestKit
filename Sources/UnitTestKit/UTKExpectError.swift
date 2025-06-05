@@ -15,6 +15,7 @@
 
 import Foundation
 import XCTest
+import Testing
 
 /// Takes a closure that is expected to throw an error, fails the unit test if no error is thrown.
 ///
@@ -71,7 +72,16 @@ public func UTKExpectNoError(_ file: StaticString = #file,
 	}
 	guard errorThrown == true else { return }
 	let errorMessageDescription = errorDescription ?? "unknown-error"
-	XCTFail("Unexpected error \(errorMessageDescription) was thrown in block, but no error was expected.",
-			file: (file),
-			line: line)
+
+	if let _ = NSClassFromString("XCTestCase") {
+		XCTFail("Unexpected error \(errorMessageDescription) was thrown in block, but no error was expected.",
+				file: (file),
+				line: line)
+	} else {
+		Issue.record("Unexpected error \(errorMessageDescription) was thrown in block, but no error was expected.",
+					 sourceLocation: SourceLocation(fileID: String(describing: file),
+													filePath: String(describing: file),
+													line: Int(line),
+													column: 0))
+	}
 }
