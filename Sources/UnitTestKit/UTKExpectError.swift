@@ -40,6 +40,13 @@ public func UTKExpectError(_ file: StaticString = #file,
 		errorThrown = true
 	}
 	guard errorThrown == false else { return }
+	Issue.record("Expected error to be thrown in block, but no error was thrown.",
+				 sourceLocation: SourceLocation(fileID: String(describing: file),
+												filePath: String(describing: file),
+												line: Int(line),
+												column: 0))
+}
+
 	XCTFail("Expected error to be thrown in block, but no error was thrown.",
 			file: (file),
 			line: line)
