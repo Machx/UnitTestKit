@@ -62,7 +62,7 @@ public func UTKExpectErrorXCT(_ file: StaticString = #file,
 			line: line)
 }
 
-/// Takes a closure that is expected to not throw an error, fails the unit test if an error is thrown.
+/// Takes a closure that is expected to not throw an error, fails the unit test if an error is thrown in Swift Test Unit Tests.
 ///
 /// ```swift
 /// UTKExpectNoError {
