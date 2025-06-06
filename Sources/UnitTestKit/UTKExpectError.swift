@@ -95,6 +95,19 @@ public func UTKExpectNoError(_ file: StaticString = #file,
 												column: 0))
 }
 
+/// Takes a closure that is expected to not throw an error, fails the unit test if an error is thrown in XCTestCases.
+///
+/// ```swift
+/// UTKExpectNoError {
+///     try funcThatShouldNotThrowError()
+///     try anotherFuncThatShouldNotThrowAnError()
+/// }
+/// ```
+///
+/// - Parameters:
+///   - file: The file where the the failure occurs, the default is the name of the file where this is being invoked from.
+///   - line: The line of the file where the failure occurs, the default is the line of the file where this is being invoked from.
+///   - block: The closure that must not throw an error before completion or fails the unit test.
 public func UTKExpectNoErrorXCT(_ file: StaticString = #file,
 							 _ line: UInt = #line,
 							 _ block: () throws -> Void) {
