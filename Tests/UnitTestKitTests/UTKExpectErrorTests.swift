@@ -32,7 +32,7 @@ final class UTKExpectErrorTests: XCTestCase {
 	func testExpectThrowError() throws {
 		XCTExpectFailure("Code block does not throw which should trigger UTKExpectError to fail.")
 
-		UTKExpectError {
+		UTKExpectErrorXCT {
 			print("Hello World!")
 		}
 	}
@@ -46,13 +46,13 @@ final class UTKExpectErrorTests: XCTestCase {
 	func testExpectNoError() throws {
 		XCTExpectFailure("Code block throws an error, which should trigger UTKExpectNoError to fail.")
 
-		UTKExpectNoError {
+		UTKExpectNoErrorXCT {
 			throw ExpectError.exampleError
 		}
 	}
 
 	func testExpectNoErrorNoThrows() throws {
-		UTKExpectNoError {
+		UTKExpectNoErrorXCT {
 			print("Hello World!")
 		}
 	}
