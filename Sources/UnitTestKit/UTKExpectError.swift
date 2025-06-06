@@ -17,7 +17,7 @@ import Foundation
 import XCTest
 import Testing
 
-/// Takes a closure that is expected to throw an error, fails the unit test if no error is thrown.
+/// Takes a closure that is expected to throw an error, fails the unit test if no error is thrown in Swift Test Unit Tests.
 ///
 /// ```swift
 /// UTKExpectError {
