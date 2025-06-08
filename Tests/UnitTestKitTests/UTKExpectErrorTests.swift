@@ -25,6 +25,13 @@ struct UTKExpectErrorTests {
 			throw MyError()
 		}
 	}
+
+	@Test func testExpectNoError() async throws {
+		UTKExpectNoError {
+			print("Hello")
+		}
+	}
+
 }
 
 //final class UTKExpectErrorTests: XCTestCase {
