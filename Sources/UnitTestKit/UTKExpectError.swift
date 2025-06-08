@@ -45,11 +45,6 @@ public func UTKExpectError(_ file: StaticString = #file,
 		errorThrown = true
 	}
 	guard errorThrown == false else { return }
-//	Issue.record("Expected error to be thrown in block, but no error was thrown.",
-//				 sourceLocation: SourceLocation(fileID: String(describing: file),
-//												filePath: String(describing: file),
-//												line: Int(line),
-//												column: 0))
 	throw .expectingErrorButDidNotEnounter
 }
 
@@ -107,12 +102,6 @@ public func UTKExpectNoError(_ file: StaticString = #file,
 	}
 	guard errorThrown,
 		  let caughtError else { return }
-	//let errorMessageDescription = errorDescription ?? "unknown-error"
-//	Issue.record("Unexpected error \(errorMessageDescription) was thrown in block, but no error was expected.",
-//				 sourceLocation: SourceLocation(fileID: String(describing: file),
-//												filePath: String(describing: file),
-//												line: Int(line),
-//												column: 0))
 	throw .didNotExpectErrorButDidEnounter(caughtError)
 }
 
