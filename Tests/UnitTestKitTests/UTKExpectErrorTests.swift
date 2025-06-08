@@ -33,14 +33,15 @@ struct UTKExpectErrorTests {
 	}
 
 	@Test func testExpectNoErrorFailure() async throws {
-		//	func testExpectThrowError() throws {
-		//		XCTExpectFailure("Code block does not throw which should trigger UTKExpectError to fail.")
-		//
-		//		UTKExpectErrorXCT {
-		//			print("Hello World!")
-		//		}
-		//	}
-		Log.general.warning("Find Swift Test Equivalent")
+		var failed = false
+		do {
+			try UTKExpectError {
+				print("Hello")
+			}
+		} catch {
+			failed = true
+		}
+		#expect(failed == true)
 	}
 }
 
