@@ -32,6 +32,16 @@ struct UTKExpectErrorTests {
 		}
 	}
 
+	@Test func testExpectNoErrorFailure() async throws {
+		//	func testExpectThrowError() throws {
+		//		XCTExpectFailure("Code block does not throw which should trigger UTKExpectError to fail.")
+		//
+		//		UTKExpectErrorXCT {
+		//			print("Hello World!")
+		//		}
+		//	}
+		Log.general.warning("Find Swift Test Equivalent")
+	}
 }
 
 //final class UTKExpectErrorTests: XCTestCase {
@@ -40,13 +50,6 @@ struct UTKExpectErrorTests {
 //		case exampleError
 //	}
 //
-//	func testExpectThrowError() throws {
-//		XCTExpectFailure("Code block does not throw which should trigger UTKExpectError to fail.")
-//
-//		UTKExpectErrorXCT {
-//			print("Hello World!")
-//		}
-//	}
 //
 //	func testExpectErrorThrows() throws {
 //		UTKExpectError {
