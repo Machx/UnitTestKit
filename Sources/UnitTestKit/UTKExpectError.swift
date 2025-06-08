@@ -96,22 +96,24 @@ public func UTKExpectErrorXCT(_ file: StaticString = #file,
 ///   - block: The closure that must not throw an error before completion or fails the unit test.
 public func UTKExpectNoError(_ file: StaticString = #file,
 							 _ line: UInt = #line,
-							 _ block: () throws -> Void) {
+							 _ block: () throws -> Void) throws(UnitTestKitError) {
 	var errorThrown: Bool = false
-	var errorDescription: String?
+	var caughtError: Error?
 	do {
 		try block()
 	} catch {
-		errorDescription = error.localizedDescription
+		caughtError = error
 		errorThrown = true
 	}
-	guard errorThrown == true else { return }
-	let errorMessageDescription = errorDescription ?? "unknown-error"
-	Issue.record("Unexpected error \(errorMessageDescription) was thrown in block, but no error was expected.",
-				 sourceLocation: SourceLocation(fileID: String(describing: file),
-												filePath: String(describing: file),
-												line: Int(line),
-												column: 0))
+	guard errorThrown,
+		  let caughtError else { return }
+	//let errorMessageDescription = errorDescription ?? "unknown-error"
+//	Issue.record("Unexpected error \(errorMessageDescription) was thrown in block, but no error was expected.",
+//				 sourceLocation: SourceLocation(fileID: String(describing: file),
+//												filePath: String(describing: file),
+//												line: Int(line),
+//												column: 0))
+	throw .didNotExpectErrorButDidEnounter(caughtError)
 }
 
 /// Takes a closure that is expected to not throw an error, fails the unit test if an error is thrown in XCTestCases.
