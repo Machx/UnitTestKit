@@ -17,6 +17,11 @@ import Foundation
 import XCTest
 import Testing
 
+public enum UnitTestKitError: Error {
+	case expectingErrorButDidNotEnounter
+	case didNotExpectErrorButDidEnounter(Error)
+}
+
 /// Takes a closure that is expected to throw an error, fails the unit test if no error is thrown in Swift Test Unit Tests.
 ///
 /// ```swift
