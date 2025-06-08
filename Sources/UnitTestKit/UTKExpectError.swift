@@ -37,7 +37,7 @@ public enum UnitTestKitError: Error {
 ///   - block: The closure that must throw an error before completion or fails the unit test.
 public func UTKExpectError(_ file: StaticString = #file,
 						   _ line: UInt = #line,
-						   _ block: () throws -> Void) {
+						   _ block: () throws -> Void) throws(UnitTestKitError) {
 	var errorThrown: Bool = false
 	do {
 		try block()
@@ -45,11 +45,12 @@ public func UTKExpectError(_ file: StaticString = #file,
 		errorThrown = true
 	}
 	guard errorThrown == false else { return }
-	Issue.record("Expected error to be thrown in block, but no error was thrown.",
-				 sourceLocation: SourceLocation(fileID: String(describing: file),
-												filePath: String(describing: file),
-												line: Int(line),
-												column: 0))
+//	Issue.record("Expected error to be thrown in block, but no error was thrown.",
+//				 sourceLocation: SourceLocation(fileID: String(describing: file),
+//												filePath: String(describing: file),
+//												line: Int(line),
+//												column: 0))
+	throw .expectingErrorButDidNotEnounter
 }
 
 /// Takes a closure that is expected to throw an error, fails the unit test if no error is thrown in XCTestCases.
