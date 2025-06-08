@@ -32,9 +32,9 @@ final class UTKExpectErrorXCTTests: XCTestCase {
 	}
 
 	func testExpectErrorThrows() throws {
-//		UTKExpectError {
-//			throw ExpectError.exampleError
-//		}
+		UTKExpectErrorXCT {
+			throw ExpectError.exampleError
+		}
 	}
 
 	func testExpectNoError() throws {
