@@ -32,11 +32,23 @@ struct UTKExpectErrorTests {
 		}
 	}
 
-	@Test func testExpectNoErrorFailure() async throws {
+	@Test func testExpectErrorFailure() async throws {
 		var failed = false
 		do {
 			try UTKExpectError {
 				print("Hello")
+			}
+		} catch {
+			failed = true
+		}
+		#expect(failed == true)
+	}
+
+	@Test func testExpectNoErrorFailure() async throws {
+		var failed = false
+		do {
+			try UTKExpectNoError {
+				throw NSError(domain: "", code: 0, userInfo: nil)
 			}
 		} catch {
 			failed = true
