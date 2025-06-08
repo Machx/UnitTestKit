@@ -1,6 +1,6 @@
 # Unit Test Kit
 
-Unit Test Kit is a Swift Package meant exclusively for complimentary additions to the XCTest Framework.
+Unit Test Kit is a Swift Package meant exclusively for complimentary additions to Swift Test and XCTest Frameworks.
 
 ## License
 
