@@ -56,31 +56,3 @@ struct UTKExpectErrorTests {
 		#expect(failed == true)
 	}
 }
-
-//final class UTKExpectErrorTests: XCTestCase {
-//
-//	enum ExpectError: Error {
-//		case exampleError
-//	}
-//
-//
-//	func testExpectErrorThrows() throws {
-//		UTKExpectError {
-//			throw ExpectError.exampleError
-//		}
-//	}
-//
-//	func testExpectNoError() throws {
-//		XCTExpectFailure("Code block throws an error, which should trigger UTKExpectNoError to fail.")
-//
-//		UTKExpectNoErrorXCT {
-//			throw ExpectError.exampleError
-//		}
-//	}
-//
-//	func testExpectNoErrorNoThrows() throws {
-//		UTKExpectNoErrorXCT {
-//			print("Hello World!")
-//		}
-//	}
-//}
