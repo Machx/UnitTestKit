@@ -21,13 +21,13 @@ import Testing
 struct UTKExpectErrorTests {
 	@Test func testExpectThrowError() async throws {
 		struct MyError: Error {}
-		UTKExpectError {
+		try UTKExpectError {
 			throw MyError()
 		}
 	}
 
 	@Test func testExpectNoError() async throws {
-		UTKExpectNoError {
+		try UTKExpectNoError {
 			print("Hello")
 		}
 	}
