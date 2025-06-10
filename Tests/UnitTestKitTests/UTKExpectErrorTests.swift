@@ -67,4 +67,13 @@ struct UTKExpectErrorTests {
 			try rethrowingFunc()
 		}
 	}
+
+	@Test func testNestedExpectError() async throws {
+		try UTKExpectNoError {
+			try UTKExpectError {
+				struct NestedError: Error {}
+				throw NestedError()
+			}
+		}
+	}
 }
