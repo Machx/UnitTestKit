@@ -55,4 +55,16 @@ struct UTKExpectErrorTests {
 		}
 		#expect(failed == true)
 	}
+
+	@Test func testRethrowInsideExpectError() async throws {
+		// Confirm that the rethrowing doesn’t interfere with UTKExpectError
+		enum TestError: Error { case fail }
+		func rethrowingFunc() throws {
+			throw TestError.fail
+		}
+
+		try UTKExpectError {
+			try rethrowingFunc()
+		}
+	}
 }
