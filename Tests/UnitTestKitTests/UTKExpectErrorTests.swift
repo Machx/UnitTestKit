@@ -76,4 +76,12 @@ struct UTKExpectErrorTests {
 			}
 		}
 	}
+
+	@Test func testDelayedAsyncThrow() async throws {
+		struct DelayedError: Error {}
+		try await UTKExpectError {
+			try await Task.sleep(nanoseconds: 10_000_000)
+			throw DelayedError()
+		}
+	}
 }
