@@ -84,4 +84,18 @@ struct UTKExpectErrorTests {
 			throw DelayedError()
 		}
 	}
+
+	@Test func testNestedAsyncThrows() async throws {
+		struct NestedError: Error {}
+		@Sendable func levelOne() async throws {
+			try await levelTwo()
+		}
+		@Sendable func levelTwo() async throws {
+			throw NestedError()
+		}
+
+		try await UTKExpectError {
+			try await levelOne()
+		}
+	}
 }
