@@ -91,11 +91,11 @@ public func UTKExpectErrorXCT(_ file: StaticString = #file,
 ///   - block: The closure that must not throw an error before completion or fails the unit test.
 public func UTKExpectNoError(_ file: StaticString = #file,
 							 _ line: UInt = #line,
-							 _ block: () throws -> Void) throws(UnitTestKitError) {
+							 _ block: @escaping @Sendable () async throws -> Void) async throws(UnitTestKitError) {
 	var errorThrown: Bool = false
 	var caughtError: Error?
 	do {
-		try block()
+		try await block()
 	} catch {
 		caughtError = error
 		errorThrown = true
