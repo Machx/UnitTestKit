@@ -21,13 +21,13 @@ import Testing
 struct UTKExpectErrorTests {
 	@Test func testExpectThrowError() async throws {
 		struct MyError: Error {}
-		try UTKExpectError {
+		try await UTKExpectError {
 			throw MyError()
 		}
 	}
 
 	@Test func testExpectNoError() async throws {
-		try UTKExpectNoError {
+		try await UTKExpectNoError {
 			print("Hello")
 		}
 	}
@@ -35,7 +35,7 @@ struct UTKExpectErrorTests {
 	@Test func testExpectErrorFailure() async throws {
 		var failed = false
 		do {
-			try UTKExpectError {
+			try await UTKExpectError {
 				print("Hello")
 			}
 		} catch {
@@ -47,7 +47,7 @@ struct UTKExpectErrorTests {
 	@Test func testExpectNoErrorFailure() async throws {
 		var failed = false
 		do {
-			try UTKExpectNoError {
+			try await UTKExpectNoError {
 				throw NSError(domain: "", code: 0, userInfo: nil)
 			}
 		} catch {
@@ -59,18 +59,18 @@ struct UTKExpectErrorTests {
 	@Test func testRethrowInsideExpectError() async throws {
 		// Confirm that the rethrowing doesn’t interfere with UTKExpectError
 		enum TestError: Error { case fail }
-		func rethrowingFunc() throws {
+		@Sendable func rethrowingFunc() throws {
 			throw TestError.fail
 		}
 
-		try UTKExpectError {
+		try await UTKExpectError {
 			try rethrowingFunc()
 		}
 	}
 
 	@Test func testNestedExpectError() async throws {
-		try UTKExpectNoError {
-			try UTKExpectError {
+		try await UTKExpectNoError {
+			try await UTKExpectError {
 				struct NestedError: Error {}
 				throw NestedError()
 			}
