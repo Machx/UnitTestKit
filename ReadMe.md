@@ -11,6 +11,16 @@ try await UTKExpectError {
 }
 ```
 
+## XCTest
+
+XCTests are supported through a compatible API
+
+```swift
+UTKExpectErrorXCT {
+	print("Hello World!")
+}
+```
+
 ## License
 
 Unit Test Kit is licensed under the Apache 2 License
