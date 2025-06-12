@@ -23,6 +23,10 @@ XCTests are supported through a compatible API
 UTKExpectErrorXCT {
 	print("Hello World!")
 }
+
+UTKExpectNoErrorXCT {
+	try yourAPIThatShouldntThrow()
+}
 ```
 
 ## License
