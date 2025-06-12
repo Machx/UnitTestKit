@@ -9,6 +9,10 @@ Swift Test is supported with API that ensure that errors are thrown or not.
 try await UTKExpectError {
 	try yourThrowingAPI()
 }
+
+try await UTKExpectNoError {
+	try yourAPIThatShouldntThrow()
+}
 ```
 
 ## XCTest
