@@ -21,7 +21,7 @@ XCTests are supported through a compatible API
 
 ```swift
 UTKExpectErrorXCT {
-	print("Hello World!")
+	try apiThatShouldThrow()
 }
 
 UTKExpectNoErrorXCT {
