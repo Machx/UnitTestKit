@@ -2,6 +2,15 @@
 
 Unit Test Kit is a Swift Package meant exclusively for complimentary additions to Swift Test and XCTest Frameworks.
 
+## Swift Test
+
+Swift Test is supported with API that ensure that errors are thrown or not.
+```swift
+try await UTKExpectError {
+	try yourThrowingAPI()
+}
+```
+
 ## License
 
 Unit Test Kit is licensed under the Apache 2 License
