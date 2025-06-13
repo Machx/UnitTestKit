@@ -17,7 +17,6 @@ let package = Package(
     ],
 	dependencies: [
 		//.package(url: "https://github.com/Machx/Konkyo.git", branch: "main"),
-		.package(url: "https://github.com/Machx/Konkyo.git", .upToNextMajor(from: "0.5.2"))
 	],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -25,7 +24,7 @@ let package = Package(
         .target(
             name: "UnitTestKit",
 			dependencies: [
-				.product(name: "Konkyo", package: "Konkyo"),
+				//.product(name: "Konkyo", package: "Konkyo"),
 			],
 			linkerSettings: [
 				.linkedFramework("XCTest")
