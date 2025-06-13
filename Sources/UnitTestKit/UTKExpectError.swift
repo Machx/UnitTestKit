@@ -25,7 +25,7 @@ public enum UnitTestKitError: Error {
 /// Takes a closure that is expected to throw an error, fails the unit test if no error is thrown in Swift Test Unit Tests.
 ///
 /// ```swift
-/// UTKExpectError {
+/// try await UTKExpectError {
 ///     try funcThatShouldThrowError()
 ///     try anotherFuncThatShouldThrowAnError()
 /// }
@@ -50,8 +50,8 @@ public func UTKExpectError(_ file: StaticString = #file,
 
 /// Takes a closure that is expected to throw an error, fails the unit test if no error is thrown in XCTestCases.
 ///
-/// ```swift
-/// UTKExpectError {
+/// ```swift update the examples with try await and make sure everything works
+/// UTKExpectErrorXCT {
 ///     try funcThatShouldThrowError()
 ///     try anotherFuncThatShouldThrowAnError()
 /// }
@@ -108,7 +108,7 @@ public func UTKExpectNoError(_ file: StaticString = #file,
 /// Takes a closure that is expected to not throw an error, fails the unit test if an error is thrown in XCTestCases.
 ///
 /// ```swift
-/// UTKExpectNoError {
+/// UTKExpectNoErrorXCT {
 ///     try funcThatShouldNotThrowError()
 ///     try anotherFuncThatShouldNotThrowAnError()
 /// }
