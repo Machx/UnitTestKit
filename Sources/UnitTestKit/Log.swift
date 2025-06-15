@@ -17,6 +17,10 @@ import Foundation
 import os.log
 import CoreGraphics.CGGeometry
 
+/// This is largely the Logging code from Konkyo, but completely copied over
+/// to avoid needing to depend on a whole Swift Package just for the logging
+/// section of the package.
+
 /// Log is a struct meant to be a central access point & extension for more logs.
 ///
 /// Log can be extended to add central access to a variety of logs like so.
