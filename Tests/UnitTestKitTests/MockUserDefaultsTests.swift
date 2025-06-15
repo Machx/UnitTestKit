@@ -181,4 +181,11 @@ final class MockUserDefaultsTests: XCTestCase {
 		// This does nothing
 		MockedDefaults.resetStandardUserDefaults()
 	}
+
+	func testOverwriteValue() {
+		let key = UUID().uuidString
+		defaults.set("Original", forKey: key)
+		defaults.set("Updated", forKey: key)
+		XCTAssertEqual(defaults.string(forKey: key), "Updated")
+	}
 }
