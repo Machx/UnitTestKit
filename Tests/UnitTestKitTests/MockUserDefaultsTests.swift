@@ -188,4 +188,12 @@ final class MockUserDefaultsTests: XCTestCase {
 		defaults.set("Updated", forKey: key)
 		XCTAssertEqual(defaults.string(forKey: key), "Updated")
 	}
+
+	func testSetNilOverwritesValue() {
+		let key = UUID().uuidString
+		defaults.set("Something", forKey: key)
+		defaults.set(nil, forKey: key)
+		XCTAssertNil(defaults.string(forKey: key))
+	}
+
 }
