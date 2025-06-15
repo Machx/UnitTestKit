@@ -122,6 +122,14 @@ public final class MockedDefaults: UserDefaults, DefaultsProtocol {
 		_storage[defaultName] = url
 	}
 
+	public func setCodable<T: Codable>(_ value: T, forKey key: String) {
+		let encoder = PropertyListEncoder()
+		if let data = try? encoder.encode(value) {
+			_storage[key] = data
+		}
+	}
+
+
 	// MARK: - Remove
 
 	public override func removeObject(forKey defaultName: String) {
