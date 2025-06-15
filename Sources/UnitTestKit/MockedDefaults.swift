@@ -90,6 +90,12 @@ public final class MockedDefaults: UserDefaults, DefaultsProtocol {
 		return _storage
 	}
 
+	public func codable<T: Codable>(forKey key: String, as type: T.Type) -> T? {
+		guard let data = _storage[key] as? Data else { return nil }
+		let decoder = PropertyListDecoder()
+		return try? decoder.decode(type, from: data)
+	}
+
 	// MARK: - Setters
 
 	public override func set(_ value: Any?, forKey defaultName: String) {
