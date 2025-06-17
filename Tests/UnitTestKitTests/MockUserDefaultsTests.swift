@@ -196,4 +196,20 @@ final class MockUserDefaultsTests: XCTestCase {
 		XCTAssertNil(defaults.string(forKey: key))
 	}
 
+	func testTypeMismatchReturnsNil() {
+		let key = UUID().uuidString
+		defaults.set(12345, forKey: key)
+		XCTAssertNil(defaults.string(forKey: key))
+	}
+
+	func testResetClearsAllValues() {
+		let key = UUID().uuidString
+		defaults.set("value", forKey: key)
+		MockedDefaults.resetStandardUserDefaults()
+		XCTAssertNotNil(defaults.string(forKey: key))
+
+		//call the actual reset func for this specific implementation
+		defaults.wipeAllDefaults()
+		XCTAssertNil(defaults.string(forKey: key))
+	}
 }
