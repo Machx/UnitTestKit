@@ -6,11 +6,12 @@
 //
 
 import Testing
+@testable import UnitTestKit
+import os.log
 
 struct LogTests {
-
-    @Test func testSomething() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
-    }
-
+	@Test
+	func basicLogging() async throws {
+		Log.general.debug("Hello from \(logLocation())")
+	}
 }
