@@ -31,8 +31,7 @@ import CoreGraphics.CGGeometry
 /// ```
 struct Log {
 	/// General Logger for anything to use as a starting point
-	static let general = Logger(subsystem: "com.konkyo.general", category: "general")
-	static let unitTestKit = Logger(subsystem: "com.unittestkit", category: "general")
+	static let general = Logger(subsystem: "com.unittestkit.general", category: "general")
 }
 
 /// Convenience function for returning the File, Function and Line string for use with OSLog
