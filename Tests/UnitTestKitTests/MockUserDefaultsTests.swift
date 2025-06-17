@@ -212,4 +212,16 @@ final class MockUserDefaultsTests: XCTestCase {
 		defaults.wipeAllDefaults()
 		XCTAssertNil(defaults.string(forKey: key))
 	}
+
+	func testEmptyString() {
+		let key = UUID().uuidString
+		defaults.set("", forKey: key)
+		XCTAssertEqual(defaults.string(forKey: key), "")
+	}
+
+	func testZeroValuePersistence() {
+		let key = UUID().uuidString
+		defaults.set(0, forKey: key)
+		XCTAssertEqual(defaults.integer(forKey: key), 0)
+	}
 }
