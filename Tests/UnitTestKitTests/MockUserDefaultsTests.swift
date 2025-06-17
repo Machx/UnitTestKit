@@ -224,4 +224,16 @@ final class MockUserDefaultsTests: XCTestCase {
 		defaults.set(0, forKey: key)
 		XCTAssertEqual(defaults.integer(forKey: key), 0)
 	}
+
+	func testInvalidObjectCastFails() {
+		let key = UUID().uuidString
+		defaults.set("Not a person", forKey: key)
+		XCTAssertNil(defaults.object(forKey: key) as? Person)
+	}
+
+	func testLongKeyNameDoesNotCrash() {
+		let longKey = String(repeating: "A", count: 10_000)
+		defaults.set("value", forKey: longKey)
+		XCTAssertEqual(defaults.string(forKey: longKey), "value")
+	}
 }
