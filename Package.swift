@@ -24,6 +24,7 @@ let package = Package(
         .target(
             name: "UnitTestKit",
 			dependencies: [
+				//.product(name: "", package: "")
 			],
 			linkerSettings: [
 				.linkedFramework("XCTest")
