@@ -24,7 +24,6 @@ let package = Package(
         .target(
             name: "UnitTestKit",
 			dependencies: [
-				//.product(name: "Konkyo", package: "Konkyo"),
 			],
 			linkerSettings: [
 				.linkedFramework("XCTest")
