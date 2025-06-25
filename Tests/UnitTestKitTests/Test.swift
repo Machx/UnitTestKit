@@ -6,6 +6,8 @@
 //
 
 import Testing
+import SwiftUI
+import UnitTestKit
 
 struct SampleView: View {
 	var body: some View {
