@@ -7,6 +7,18 @@
 
 import Testing
 
+struct SampleView: View {
+	var body: some View {
+		Text("Hello")
+	}
+}
+
+struct AnotherView: View {
+	var body: some View {
+		Text("World")
+	}
+}
+
 struct Test {
 
     @Test func <#test function name#>() async throws {
