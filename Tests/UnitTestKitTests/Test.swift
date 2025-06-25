@@ -19,10 +19,17 @@ struct AnotherView: View {
 	}
 }
 
-struct Test {
 
-    @Test func <#test function name#>() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
-    }
+@Suite("SwiftUIHelperTests")
+struct SwiftUIHelperTests {
+	@Test
+	func isofTypeTest() async throws {
+		let view = SampleView()
+		#expect(await view.isOfType(SampleView.self))
+	}
 
+	func isNotOfTypeTest() async throws {
+		let view = SampleView()
+		#expect(await !view.isOfType(Text.self))
+	}
 }
