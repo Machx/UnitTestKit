@@ -7,7 +7,6 @@
 ///
 
 import XCTest
-import Konkyo
 import os.log
 @testable import UnitTestKit
 

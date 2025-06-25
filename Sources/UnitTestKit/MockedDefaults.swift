@@ -14,7 +14,6 @@
 /// limitations under the License.
 
 import Foundation
-import Konkyo
 import os.log
 
 /// Protocol for being able to specify anything that subclasses from UserDefaults.
