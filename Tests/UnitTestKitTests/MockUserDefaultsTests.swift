@@ -237,6 +237,7 @@ final class MockUserDefaultsTests: XCTestCase {
 	}
 
 	func testAllRegisteredKeys() {
-		
+		let keys = defaults.allRegisteredKeys()
+		XCTAssertGreaterThanOrEqual(1, keys.count)
 	}
 }
