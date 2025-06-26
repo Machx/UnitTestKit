@@ -235,4 +235,8 @@ final class MockUserDefaultsTests: XCTestCase {
 		defaults.set("value", forKey: longKey)
 		XCTAssertEqual(defaults.string(forKey: longKey), "value")
 	}
+
+	func testAllRegisteredKeys() {
+		
+	}
 }
